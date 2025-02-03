@@ -4,9 +4,10 @@ class Gossip
   
 attr_accessor :author, :content
 
-  def initialize (author , content)
+  def initialize (author , content )
     @content = content 
     @author = author 
+    
   end
 
   def save (file_path = "db/gossip.csv")
@@ -25,12 +26,10 @@ attr_accessor :author, :content
   end
 
   def self.find(id)
-    all_gossips = []
-    CSV.read("./db/gossip.csv").each_with_index do |csv_line, index|
-      if index == id.to_i
-        return Gossip.new(csv_line[0], csv_line[1])
-      end
+    gossips = []
+    CSV.foreach("db/gossip.csv") do |row|
+      gossips<<Gossip.new(row[0],row[1])
     end
-    return nil # Return nil if no gossip is found with the given id
+    gossips[id.to_i - 1 ]
   end
 end

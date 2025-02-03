@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Edit the Gossip!</title>
+</head>
+<body>
+    <h1>Edit here </h1>
+    <p>Edit your gossip via the form below</p>
+    <form action='/gossips/:id/edit/' method='POST'>
+
+    Original : <%= gossip.content %> <br/>
+
+    Edit your gossip: <input type='text' new_content='new_gossip_content'/><br/>
+    
+    <input type='submit'/>
+    </form>
+</body>
+</html>

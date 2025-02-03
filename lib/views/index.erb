@@ -4,13 +4,18 @@
   </head>
   <body>
     <h1>The Gossip List : </h1>
-      <% gossips.each do |gossip| %>
-  <p>
-    <%= gossip.author %><br/>
-    <%= gossip.content %>
+    <u1>
+      <% gossips.each_with_index do |gossip, index| %>
+      </br>
+  <p><a href="gossips/<%= index + 1 %>/">Gossip n° <%= index + 1 %></a>
+    -Author : <%= gossip.author %><br/>
+    </br>
+    - <%= gossip.content %>
+    </br>
   </p>
 <% end %>
-    <p>You can record your gossip by following this link <p>
+    </u1>
+    <h2>You can record your gossip by following this link </h2>
     <a href="/gossips/new/">New Gossip</a>
   </body>
 </html>

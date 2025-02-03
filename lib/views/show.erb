@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gossip</title>
+<html>
+  <head>
+    <title>Gossip page</title>
 </head>
 <body>
-  <h1>Gossip de <%= @gossip.author %></h1>
+  <h1> Here is the page of the gossip number <%= params[:id] %></h1> 
+  <p><u>Gossip of </u> : <%= @gossip.author %></p>
   <p><%= @gossip.content %></p>
-  
-  <a href="/">Retour à l'accueil</a>
+  <a href="/gossips/id/edit/">Edit</a>
+  </br>
+  <a href="/">Back</a>
 </body>
 </html>

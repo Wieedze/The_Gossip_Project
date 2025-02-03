@@ -19,13 +19,16 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
-  get '/gossip/:id/' do
-    @gossip = Gossip.find(params[:id]) # Trouve le gossip par son ID
+  get '/gossips/:id/' do
+    @gossip = Gossip.find(params[:id]) 
     if @gossip
-      erb :show_gossip # Affiche le gossip trouvé
+      erb :show 
     else
       "Gossip introuvable."
     end
   end
 
+  get '/gossips/:id/edit' do 
+    :edit 
+  end 
 end 
